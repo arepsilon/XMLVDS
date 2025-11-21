@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: tableau-extension-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/config:/app/config
+      - ./backend/logs:/app/logs
+      - backend-temp:/app/temp
+    restart: unless-stopped
+    networks:
+      - tableau-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: tableau-extension-frontend
+    ports:
+      - "8443:443"
+    environment:
+      - NODE_ENV=production
+      - REACT_APP_API_URL=http://backend:3001
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - tableau-network
+
+volumes:
+  backend-temp:
+
+networks:
+  tableau-network:
+    driver: bridge

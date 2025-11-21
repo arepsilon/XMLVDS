@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest manifest-version="0.1" xmlns="http://www.tableau.com/xml/extension_manifest">
+  <dashboard-extension id="com.tableau.extensions.xmlvds" extension-version="1.0.0">
+    <default-locale>en_US</default-locale>
+    <name resource-id="name"/>
+    <description>Tableau Dashboard Extension for automated data extraction and Excel export</description>
+    <author name="Your Organization" email="support@yourorg.com" organization="Your Organization" website="https://yourorg.com"/>
+    <min-api-version>1.10</min-api-version>
+    <source-location>
+      <url>https://localhost:8443/</url>
+    </source-location>
+    <icon>iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==</icon>
+    <permissions>
+      <permission>full data</permission>
+    </permissions>
+    <context-menu>
+      <configure-context-menu-item />
+    </context-menu>
+  </dashboard-extension>
+  <resources>
+    <resource id="name">
+      <text locale="en_US">XMLVDS - Tableau Data Extractor</text>
+    </resource>
+  </resources>
+</manifest>
