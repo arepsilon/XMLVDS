@@ -25,8 +25,8 @@
     "@types/react-dom": "^18.2.17"
   },
   "scripts": {
-    "start": "vite --host --https",
-    "dev": "vite --host --https",
+    "start": "vite --host",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src --ext js,jsx",
